@@ -1,0 +1,106 @@
+applicationsets:
+- name: bootstrap
+  namespace: argocd
+  additionalLabels: {}
+  additionalAnnotations: {}
+  generators:
+  - git:
+      repoURL: ${repo_url}
+      revision: main
+      directories: 
+      - path: "application/bootstrap/*"
+  template:
+    metadata:
+      name: '{{path.basename}}'
+      labels: {}
+      annotations: {}
+    spec:
+      project: bootstrap
+      source:
+        repoURL: ${repo_url}
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      ignoreDifferences:
+      - group: apps
+        kind: Deployment
+        jsonPointers:
+        - /spec/replicas
+  syncPolicy:
+    preserveResourcesOnDeletion: false
+- name: dev
+  namespace: argocd
+  additionalLabels: {}
+  additionalAnnotations: {}
+  generators:
+  - git:
+      repoURL: ${repo_url}
+      revision: dev
+      directories: 
+      - path: "application/*/overlays/dev"
+  template:
+    metadata:
+      name: '{{path.basename}}-{{path[1]}}'
+      labels: {}
+      annotations: {}
+    spec:
+      project: dev
+      source:
+        repoURL: ${repo_url}
+        targetRevision: dev
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: dev
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      ignoreDifferences:
+      - group: apps
+        kind: Deployment
+        jsonPointers:
+        - /spec/replicas
+  syncPolicy:
+    preserveResourcesOnDeletion: false
+- name: prd
+  namespace: argocd
+  additionalLabels: {}
+  additionalAnnotations: {}
+  generators:
+  - git:
+      repoURL: ${repo_url}
+      revision: main
+      directories: 
+      - path: "application/*/overlays/prd"
+  template:
+    metadata:
+      name: '{{path.basename}}-{{path[1]}}'
+      labels: {}
+      annotations: {}
+    spec:
+      project: prd
+      source:
+        repoURL: ${repo_url}
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: prd
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      ignoreDifferences:
+      - group: apps
+        kind: Deployment
+        jsonPointers:
+        - /spec/replicas
+  syncPolicy:
+    preserveResourcesOnDeletion: false

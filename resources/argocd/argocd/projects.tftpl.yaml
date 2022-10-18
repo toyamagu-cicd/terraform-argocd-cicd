@@ -1,0 +1,54 @@
+projects:
+ - name: parent-apps
+   namespace: argocd
+   additionalLabels: {}
+   additionalAnnotations: {}
+   finalizers:
+   - resources-finalizer.argocd.argoproj.io
+   description: Apps project
+   sourceRepos:
+   - '*'
+   destinations:
+   - namespace: argocd
+     server: https://kubernetes.default.svc
+ - name: dev
+   namespace: argocd
+   additionalLabels: {}
+   additionalAnnotations: {}
+   finalizers:
+   - resources-finalizer.argocd.argoproj.io
+   description: Child app project
+   sourceRepos:
+   - '*'
+   destinations:
+   - namespace: dev
+     server: https://kubernetes.default.svc
+ - name: prd
+   namespace: argocd
+   additionalLabels: {}
+   additionalAnnotations: {}
+   finalizers:
+   - resources-finalizer.argocd.argoproj.io
+   description: Child app project
+   sourceRepos:
+   - '*'
+   destinations:
+   - namespace: prd
+     server: https://kubernetes.default.svc
+ - name: bootstrap
+   namespace: argocd
+   additionalLabels: {}
+   additionalAnnotations: {}
+   finalizers:
+   - resources-finalizer.argocd.argoproj.io
+   description: Bootstrap app
+   sourceRepos:
+   - '*'
+   destinations:
+   - namespace: nginx-ingress
+     server: https://kubernetes.default.svc
+   - namespace: argocd
+     server: https://kubernetes.default.svc
+   clusterResourceWhitelist: # For cluster wide resources.
+   - group: "*"
+     kind: "*"

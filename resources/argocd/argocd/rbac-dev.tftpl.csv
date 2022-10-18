@@ -1,0 +1,11 @@
+g, ${github_org}:operator, role:operator
+g, ${github_org}:developer, role:developer
+g, ${github_org}:developer-leader, role:developer
+
+g, role:operator, role:admin
+
+# Dont need bacause policy.default: role:readonly
+# p, role:developer, applications, get, dev/*, allow
+# p, role:developer, logs, get, dev/*, allow
+p, role:developer, applications, sync, dev/*, allow
+p, role:developer, exec, create, dev/*, allow

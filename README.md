@@ -17,7 +17,7 @@
 1. Change `backend-config.hcl` for one's environment.
 1. `cp example.tfvars example.auto.tfvars`, and edit (Comment out input values appropriately).
 1. Setup backend: `terraform init -backend-config=backend-config.hcl`
-1. Export GITHUB Token: `export GITHUB_TOKEN=hogehoge`
+1. Export GitHub Token: `export GITHUB_TOKEN=hogehoge`
 1. `terraform plan`
 1. `terraform apply`
 

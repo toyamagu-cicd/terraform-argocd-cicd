@@ -4,8 +4,7 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~>1.3 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4 |
-| <a name="requirement_github"></a> [github](#requirement\_github) | ~>5 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | ~>5.5.0 |
 
 ## Providers
 

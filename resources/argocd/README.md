@@ -16,16 +16,19 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.72 |
-| <a name="requirement_helm"></a> [helm](#requirement\_helm) | >= 2.6.0 |
-| <a name="requirement_kubectl"></a> [kubectl](#requirement\_kubectl) | >= 1.7.0 |
-| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 2.10 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~>1.3 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4 |
+| <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 2 |
+| <a name="requirement_http"></a> [http](#requirement\_http) | ~>3 |
+| <a name="requirement_kubectl"></a> [kubectl](#requirement\_kubectl) | ~> 1 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2 |
+| <a name="requirement_null"></a> [null](#requirement\_null) | ~>3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.34.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.75.2 |
 | <a name="provider_http"></a> [http](#provider\_http) | 3.1.0 |
 | <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.14.0 |
 | <a name="provider_null"></a> [null](#provider\_null) | 3.1.1 |
@@ -61,8 +64,6 @@
 | [aws_ssm_parameter.client_secret](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
 | [kubernetes_namespace.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
 | [null_resource.register_secret](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
-| [aws_eks_cluster.cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster) | data source |
-| [aws_eks_cluster_auth.cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster_auth) | data source |
 | [aws_route53_zone.public](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route53_zone) | data source |
 | [aws_ssm_parameter.client_id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [aws_ssm_parameter.client_secret](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |

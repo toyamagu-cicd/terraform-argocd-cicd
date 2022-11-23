@@ -25,7 +25,6 @@ locals {
   }
   rbac_dev = templatefile("${path.module}/argocd/rbac-dev.tftpl.csv", local.argocd_rbac_vars)
   rbac_prd = templatefile("${path.module}/argocd/rbac-prd.tftpl.csv", local.argocd_rbac_vars)
-  path     = "./argocd/rbac-dev.tftpl.csv"
   rbac_csv = <<-EOT
   ${local.rbac_dev}
   ${local.rbac_prd}

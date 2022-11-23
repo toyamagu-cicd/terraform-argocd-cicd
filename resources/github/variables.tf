@@ -15,12 +15,6 @@ variable "repositories" {
   default = []
 }
 
-variable "aws_region" {
-  description = "AWS region"
-  type        = string
-  default     = "ap-northeast-1"
-}
-
 variable "teams" {
   description = "GitHub Org teams"
   type = list(object({

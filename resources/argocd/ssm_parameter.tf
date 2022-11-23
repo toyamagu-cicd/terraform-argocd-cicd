@@ -45,7 +45,7 @@ data "aws_ssm_parameter" "client_secret" {
 resource "null_resource" "register_secret" {
   count = local.sso_credentials.is_set ? 1 : 0
   triggers = {
-    run_always = "${timestamp()}"
+    run_always = timestamp()
   }
   provisioner "local-exec" {
     environment = {

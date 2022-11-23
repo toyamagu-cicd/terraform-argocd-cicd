@@ -4,7 +4,8 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~>1.3 |
-| <a name="requirement_github"></a> [github](#requirement\_github) | ~>5.5.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | ~>5 |
 
 ## Providers
 
@@ -40,7 +41,6 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | AWS region | `string` | `"ap-northeast-1"` | no |
 | <a name="input_branch_protections"></a> [branch\_protections](#input\_branch\_protections) | branch protections | <pre>list(object({<br>    repository                    = string<br>    branch                        = string<br>    enforce_admins                = bool<br>    required_pull_request_reviews = optional(map(any), null)<br>    restrictions                  = optional(map(any), null)<br>  }))</pre> | `[]` | no |
 | <a name="input_create_oidc_provider_github"></a> [create\_oidc\_provider\_github](#input\_create\_oidc\_provider\_github) | Flag to create OIDC provider for GitHub | `bool` | `false` | no |
 | <a name="input_ecr_repo_name"></a> [ecr\_repo\_name](#input\_ecr\_repo\_name) | ECR repository name | `string` | n/a | yes |
